@@ -1,25 +1,40 @@
 /*
-* Conor O'Brien
-* SDEV328 1/13/2021
-* script.js
+*   Conor O'Brien SDEV328
+*   JS 2 and 3 Assignment
+*   Winter 2022
+*   script.js
 * */
+
+let element = document.getElementsByTagName("div")[0];
 
 function docWriteNums()
 {
-    for (let x = 1; x <= 100; x++)
+    //clear the writeInIt block each time button is clicked
+    document.getElementById('writeInIt').innerHTML = " "
+    let inputNum = document.getElementById("heeHawNum").value;
+
+    if(isNaN(inputNum) || inputNum <= 0 || inputNum == null)
     {
-        if(x % 3 === 0 && x % 5 === 0)
+        document.getElementById('writeInIt').innerHTML = "<p id='err'>A positive integer is required.</p>"
+    } else
+    {
+        //run for loop with user input
+        for (let x = 1; x <= inputNum; x++)
         {
-            document.write("<p>Hee Haw!</p>");
-        } else if (x % 3 === 0)
-        {
-            document.write("<p>Hee!</p>");
-        } else if (x % 5 === 0)
-        {
-            document.write("<p>Haw!</p>");
-        } else
-        {
-            document.write("</p>" + x + "</p>");
+            if(x % 3 === 0 && x % 5 === 0)
+            {
+                document.getElementById('writeInIt').innerHTML += "<p>Hee Haw!</p>\n";
+            } else if (x % 3 === 0)
+            {
+                document.getElementById('writeInIt').innerHTML += "<p>Hee!</p>\n";
+            } else if (x % 5 === 0)
+            {
+                document.getElementById('writeInIt').innerHTML += "<p>Haw!</p>\n";
+            } else
+            {
+                document.getElementById('writeInIt').innerHTML += "<p>" + x + "</p>\n";
+            }
         }
     }
+
 }
